@@ -1,0 +1,30 @@
+.center{
+    padding: 2em;
+}
+.underline {
+    text-decoration: underline;
+    /* border-bottom: 2px solid #0d6efd; */
+  }
+
+.color{
+    color: #0d6efd;
+}
+
+background-color{
+    color: #f6f9fe;
+}
+
+.align{
+    text-align: justify;
+}
+
+.bar {
+    border: 4px solid #0d6efd;
+    width: 25%;
+    /* height: 30px; */
+    border-bottom: none;
+    /* position: fixed; */
+    background: transparent;
+    top: 0px;
+    left: 0px;
+  }
