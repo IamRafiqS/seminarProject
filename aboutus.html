@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- TODO: fix hamburger icon not function in mobile view -->
-    <!-- TODO: delete certain class name -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <!-- Bootstrap Link -->
-    <link rel="stylesheet" href="bootstrap.css">
-    <!-- Custom css file -->
-    <link rel="stylesheet" href="custom.css">
+    <title>Insurance Seminar Project - About Us </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- Load Require CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font CSS -->
+    <link href="assets/css/boxicon.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Load Tempalte CSS -->
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+<!--
+    
+TemplateMo 561 Purple Buzz
+
+https://templatemo.com/tm-561-purple-buzz
+
+-->
 </head>
+
 <body>
-      <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
+    <!-- Header -->
+    <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
         <div class="container d-flex justify-content-between align-items-center">
             <a class="navbar-brand h1" href="index.html">
                 <i class='bx bx-buildings bx-sm text-dark'></i>
-                <span class="text-dark h4">Seminar</span> <span class="text-primary h4">Project</span>
+                <span class="text-dark h4">I Agency</span> <span class="text-primary h4">Seminar</span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler-success" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+            <!-- TODO: change the reference link -->
             <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="navbar-toggler-success">
                 <div class="flex-fill mx-xl-5 mb-2">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
@@ -30,13 +45,13 @@
                             <a class="nav-link btn-outline-primary rounded-pill px-3" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="about.html">About</a>
+                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="aboutus.html">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link btn-outline-primary rounded-pill px-3" href="work.html">Work</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="pricing.html">Pricing</a>
+                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="options.html">Seminar Plan</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link btn-outline-primary rounded-pill px-3" href="contact.html">Contact</a>
@@ -51,58 +66,101 @@
             </div>
         </div>
     </nav>
+    <!-- Close Header -->
 
+
+    <!-- Start Banner Hero -->
     <section class="bg-light w-100">
         <div class="container">
             <div class="row d-flex align-items-center py-5">
                 <div class="col-lg-6 text-start">
-                    <h1 class="h1 py-5 text-primary underline">About Us</h1>
-
-                    <p class="light-300 fs-4 ">
+                    <h1 class="h2 py-5 text-primary typo-space-line">About Us</h1>
+                    <p class="light-300">
                         The untold stories behind your insurance policies.
-                        We tell you the truth that your insurance agents may not tell you.                     
+                        We tell you the truth that your insurance agents may not tell you.  
                     </p>
                 </div>
                 <div class="col-lg-6">
-                    <img src=".\assets\banner-img-02.svg">
+                    <img src="./assets/img/banner-img-02.svg">
                 </div>
             </div>
         </div>
     </section>
+    <!-- End Banner Hero -->
 
-        <!-- Start Choice -->
-        <section class="why-us banner-bg bg-light">
-            <div class="container my-4">
-                <div class="row">
-                    <div class="banner-img col-lg-5 p-3">
-                        <img src=".\assets\work.svg" class="rounded img-fluid" alt="">
-                    </div>
-                    <div class="banner-content col-lg-7 align-self-end">
-                        <h2 class="h1 pb-3 text-primary ">Who are we?</h2>
-                        <p class="text-muted pb-5 light-300 fs-5 align">
-                            We are a group of professional insurance advisors, financial planners and risk management 
+    <!-- Start Choice -->
+    <section class="why-us banner-bg bg-light">
+        <div class="container my-4">
+            <div class="row">
+                <div class="banner-img col-lg-5">
+                    <img src="./assets/img/work.svg" class="rounded img-fluid" alt="">
+                </div>
+                <div class="banner-content col-lg-7 align-self-end">
+                    <h2 class="h2 pb-3">Who are we?</h2>
+                    <p class="text-muted pb-5 light-300">
+                        We are a group of professional insurance advisors, financial planners and risk management 
                             consultants who volunteer ourselves to help you planning for your future and protect your 
                             loved ones from potential financial risks. Our advice and seminars are completely FREE.
-                    </p>
-                    </div>
                 </div>
             </div>
-        </section>
-        <!-- End Choice -->
+        </div>
+    </section>
+    <!-- End Choice -->
 
-          <!-- Start Footer -->
-    <footer class="bg-primary pt-4">
+    <!-- Start Aim -->
+    <section class="banner-bg bg-white py-5">
+        <div class="container my-4">
+            <div class="row text-center">
+
+                <div class="objective col-lg-4">
+                    <div class="objective-icon card m-auto py-4 mb-2 mb-sm-4 bg-secondary shadow-lg">
+                        <i class="display-4 bx bxs-bulb text-light"></i>
+                    </div>
+                    <h2 class="objective-heading h3 mb-2 mb-sm-4 light-300">Our Vision</h2>
+                    <p class="light-300">
+                        Trying to educate people about the hidden details in insurance policies and 
+                        let insurance company be more clear with their insurance policies.
+                    </p>
+                </div>
+
+                <div class="objective col-lg-4 mt-sm-0 mt-4">
+                    <div class="objective-icon card m-auto py-4 mb-2 mb-sm-4 bg-secondary shadow-lg">
+                        <i class='display-4 bx bx-revision text-light'></i>
+                    </div>
+                    <h2 class="objective-heading h3 mb-2 mb-sm-4 light-300">Our Mission</h2>
+                    <p class="light-300">
+                        Making sure all our clients fully understood their insurance policies including the hidden details 
+                        that insurance agents would not tell.
+                    </p>
+                </div>
+
+                <div class="objective col-lg-4 mt-sm-0 mt-4">
+                    <div class="objective-icon card m-auto py-4 mb-2 mb-sm-4 bg-secondary shadow-lg">
+                        <i class="display-4 bx bxs-select-multiple text-light"></i>
+                    </div>
+                    <h2 class="objective-heading h3 mb-2 mb-sm-4 light-300">Our Goal</h2>
+                    <p class="light-300">
+                        To help uncover the hidden details of your insurance policies.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- End Aim -->
+
+    <!-- Start Footer -->
+    <footer class="bg-secondary pt-4">
         <div class="container">
             <div class="row py-4">
 
                 <div class="col-lg-3 col-12 align-left">
                     <a class="navbar-brand" href="index.html">
                         <i class='bx bx-buildings bx-sm text-light'></i>
-                        <span class="text-light h5">Seminar</span> <span class="text-light h5 semi-bold-600">Project</span>
+                        <span class="text-light h5">I Agency</span> <span class="text-light h5 semi-bold-600">Seminar</span>
                     </a>
                     <p class="text-light my-lg-4 my-2">
-                        The untold stories behind your insurance policies.
-                        We tell you the truth that your insurance agents may not tell you.  
+                        Join our FREE seminar and let the experts tell you the truth about your insurance policy.
                     </p>
                 </div>
 
@@ -119,7 +177,7 @@
                                 <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="work.html">Work</a>
                             </li>
                             <li class="pb-2">
-                                <i class='bx-fw bx bxs-chevron-right bx-xs'></i></i><a class="text-decoration-none text-light py-1" href="pricing.html">Price</a>
+                                <i class='bx-fw bx bxs-chevron-right bx-xs'></i></i><a class="text-decoration-none text-light py-1" href="options.html">Seminar Plan</a>
                             </li>
                             <li class="pb-2">
                                 <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="contact.html">Contact</a>
@@ -128,13 +186,13 @@
                 </div>
 
                 <div class="col-lg-3 col-md-4 my-sm-0 mt-4">
-                    <h2 class="h4 pb-lg-3 text-light light-300">Contact Us</h2>
+                    <h2 class="h4 pb-lg-3 text-light light-300">For Client</h2>
                     <ul class="list-unstyled text-light light-300">
                         <li class="pb-2">
-                            <i class='bx-fw bx bx-phone bx-xs'></i><a class="text-decoration-none text-light py-1">012-3456 789</a>
+                            <i class='bx-fw bx bx-phone bx-xs'></i><a class="text-decoration-none text-light py-1" href="tel:010-020-0340">010-020-0340</a>
                         </li>
                         <li class="pb-2">
-                            <i class='bx-fw bx bx-mail-send bx-xs'></i><a class="text-decoration-none text-light py-1">contactus@email.com</a>
+                            <i class='bx-fw bx bx-mail-send bx-xs'></i><a class="text-decoration-none text-light py-1" href="mailto:info@company.com">info@company.com</a>
                         </li>
                     </ul>
                 </div>
@@ -142,8 +200,34 @@
             </div>
         </div>
 
+        <div class="w-100 bg-primary py-3">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-lg-6 col-sm-12">
+                        <p class="text-lg-start text-center text-light light-300">
+                            © Copyright 2021 Seminar Project Company. All Rights Reserved.
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <p class="text-lg-end text-center text-light light-300">
+                            Designed by <a rel="sponsored" class="text-decoration-none text-light" href="https://templatemo.com/" target="_blank"><strong>TemplateMo</strong></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </footer>
     <!-- End Footer -->
 
+
+    <!-- Bootstrap -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- Templatemo -->
+    <script src="assets/js/templatemo.js"></script>
+    <!-- Custom -->
+    <script src="assets/js/custom.js"></script>
+
 </body>
+
 </html>
