@@ -128,7 +128,7 @@
                             <a class="nav-link btn-outline-primary rounded-pill px-3" href="aboutus.php">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="work.php">Work</a>
+                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="login.php">Work</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link btn-outline-primary rounded-pill px-3" href="options.php">Seminar Plan</a>
@@ -138,7 +138,7 @@
                 <div class="navbar align-self-center d-flex">
                 <div class="navbar align-self-center d-flex">
 		<div class="fb-share-button" data-href="https://www.facebook.com/GreatEasternMY/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FGreatEasternMY%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-                <div class="fa fa-instagram"><a href="https://www.instagram.com/greateasterntakaful/?hl=en"></a>
+                <a class="fa fa-instagram" href="https://www.instagram.com/greateasterntakaful/?hl=en"></a>
                 </div>
             </div>
         </div>
@@ -264,7 +264,7 @@
                             <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="aboutus.php">About Us</a>
                         </li>
                         <li class="pb-2">
-                            <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="work.php">Work</a>
+                            <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="login.php">Work</a>
                         </li>
                         <li class="pb-2">
                             <i class='bx-fw bx bxs-chevron-right bx-xs'></i></i><a class="text-decoration-none text-light py-1" href="options.php">Seminar Plan</a>

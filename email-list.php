@@ -154,13 +154,13 @@ https://templatemo.com/tm-561-purple-buzz
                                     <?php echo $filename;?></td>
 				<td class="column100 column2" data-column="column1">
                                     <form  action="mailto:<?php echo $email;?>?subject=I Agency Insurance Registration" method="post" enctype="text/plain" target="_blank">
-                        		<p hidden><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject" value="Dear <?php echo $fullname;?>, your registration is successful. Given are the details of your registration : { Seminar Name: <?php echo $name;?> Date: <?php echo $date;?> Time: <?php echo $time;?> Venue: <?php echo $venue;?> }. Thank you for joining!"></p>
+                        		<p hidden><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject" value="Dear <?php echo $fullname;?>, your registration is successful. Given are the details of your registration : { Seminar Name: <?php echo $name;?>, Date: <?php echo $date;?>, Time: <?php echo $time;?>, Venue: <?php echo $venue;?> }. Thank you for joining!"></p>
                         		<button type="submit" class="">Invite</button>
 				    </form>
                                 </td>
 				<td class="column100 column2" data-column="column1">
                                     <form  action="mailto: ?subject=I Agency Insurance Assignment" method="post" enctype="text/plain" target="_blank">
-                        		<p hidden><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject" value="Dear Agent, you are assigned with the specific participant for the seminar. Given are the details of the participant :  { Participant Name: <?php echo $fullname;?> Occupation: <?php echo $occupation;?> Email: <?php echo $email;?> Phone Number: <?php echo $phonenumber;?> File Name : <?php echo $filename;?>}. Thank your for your help!"></p>
+                        		<p hidden><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject" value="Dear Agent, you are assigned with the specific participant for the seminar. Given are the details of the participant :  { Participant Name: <?php echo $fullname;?>, Occupation: <?php echo $occupation;?>, Email: <?php echo $email;?>, Phone Number: <?php echo $phonenumber;?>, File Name : <?php echo $filename;?>}. Thank your for your help!"></p>
                         		<button type="submit" class="">Assign</button>
 				    </form>
                                 </td>
