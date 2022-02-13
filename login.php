@@ -1,3 +1,37 @@
+<?php
+$conn = mysqli_connect("localhost", "root", "", "seminar_project");
+// Check connection
+if($conn === false){
+    die("ERROR: Could not connect. "
+        . mysqli_connect_error());
+}
+
+session_start();
+$error = false;
+// If form submitted, insert values into the database.
+if (isset($_POST['username'])){
+        // removes backslashes
+    $username = stripslashes($_REQUEST['username']);
+        //escapes special characters in a string
+    $username = mysqli_real_escape_string($conn,$username);
+    $password = stripslashes($_REQUEST['password']);
+    $password = mysqli_real_escape_string($conn,$password);
+    //Checking is user existing in the database or not
+    $query = "SELECT * FROM admin WHERE username='$username'and password='$password'";
+    $result = mysqli_query($conn,$query) ;
+    $rows = mysqli_num_rows($result);
+        if($rows==1){
+        $_SESSION['username'] = $username;
+            // Redirect user to work.php
+        header("Location: work.php");
+         }else{
+	$error = true;
+    }
+    }else{
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,16 +50,31 @@
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/custom.css">
-    <!--
-    
-TemplateMo 561 Purple Buzz
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.fa {
+  padding: 4px;
+  font-size: 20px;
+  width: 75px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
 
-https://templatemo.com/tm-561-purple-buzz
+.fa:hover {
+    opacity: 0.7;
+}
 
--->
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+</style>
 </head>
 
 <body>
+<div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v13.0" nonce="xf4OSkTh"></script>
     <!-- Header -->
     <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
         <div class="container d-flex justify-content-between align-items-center">
@@ -48,7 +97,7 @@ https://templatemo.com/tm-561-purple-buzz
                             <a class="nav-link btn-outline-primary rounded-pill px-3" href="aboutus.php">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="work.php">Work</a>
+                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="login.php">Work</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link btn-outline-primary rounded-pill px-3" href="options.php">Seminar Plan</a>
@@ -56,10 +105,9 @@ https://templatemo.com/tm-561-purple-buzz
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
-                    <a class="nav-link" href="#"><i class='bx bx-bell bx-sm bx-tada-hover text-primary'></i></a>
-                    <a class="nav-link" href="#"><i class='bx bx-cog bx-sm text-primary'></i></a>
-                    <a class="nav-link" href="#"><i class='bx bx-user-circle bx-sm text-primary'></i></a>
-                </div>
+		<div class="fb-share-button" data-href="https://www.facebook.com/GreatEasternMY/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FGreatEasternMY%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                <div class="fa fa-instagram"><a href="https://www.instagram.com/greateasterntakaful/?hl=en"></a>
+		</div>
             </div>
         </div>
     </nav>
@@ -81,12 +129,12 @@ https://templatemo.com/tm-561-purple-buzz
             <div class="col-lg-6">
                 <!-- Start Contact Form -->
                 <div class="col-lg-10 ">
-                    <form class="contact-form row" method="post" action="#" role="form">
+                    <form class="contact-form row" action="" method="post" role="form">
 
                         <div class="col-lg-12 mb-4">
                             <div class="form-floating">
                                 <input type="text" class="form-control form-control-lg light-300" id="floatingname"
-                                    name="inputname" placeholder="Username">
+                                    name="username" placeholder="Username" required>
                                 <label for="floatingname light-300">Username</label>
                             </div>
                         </div><!-- End Input Name -->
@@ -94,17 +142,20 @@ https://templatemo.com/tm-561-purple-buzz
                         <div class="col-lg-12 mb-4">
                             <div class="form-floating">
                                 <input type="password" class="form-control form-control-lg light-300" id="floatingphone"
-                                    name="inputpassword" placeholder="Password">
+                                    name="password" placeholder="Password" required>
                                 <label for="floatingphone light-300">Password</label>
                             </div>
                         </div><!-- End Input Password -->
 
                         <div class="col-md-12 col-12 m-auto text-end">
-                            <a type="submit"
-                                class="btn btn-secondary rounded-pill px-md-5 px-4 py-2 radius-0 text-light light-300" href="work.php">Log In</a>
+                            <button type="submit"
+                                class="btn btn-secondary rounded-pill px-md-5 px-4 py-2 radius-0 text-light light-300">Log In</button>
                         </div>
 
                     </form>
+			<?php if($error){ ?>
+   			<script> alert ("Incorrect Username or Password!")</script>
+ 			<?php } ?>
                 </div>
                 <!-- End Contact Form -->
             </div>
@@ -137,7 +188,7 @@ https://templatemo.com/tm-561-purple-buzz
                             <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="aboutus.php">About Us</a>
                         </li>
                         <li class="pb-2">
-                            <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="work.php">Work</a>
+                            <i class='bx-fw bx bxs-chevron-right bx-xs'></i><a class="text-decoration-none text-light py-1" href="login.php">Work</a>
                         </li>
                         <li class="pb-2">
                             <i class='bx-fw bx bxs-chevron-right bx-xs'></i></i><a class="text-decoration-none text-light py-1" href="options.php">Seminar Plan</a>

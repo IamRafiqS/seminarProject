@@ -1,3 +1,10 @@
+<?php
+        $conn = mysqli_connect("localhost", "root", "", "seminar_project");
+        $sql_member = "SELECT * from seminar ORDER BY id ASC;";
+        $result_member = $conn-> query($sql_member);
+	$success=false;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,16 +26,31 @@
     <link rel="stylesheet" type="text/css" href="new.css">
     <!-- Custom Icon -->
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--
-    
-TemplateMo 561 Purple Buzz
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.fa {
+  padding: 4px;
+  font-size: 20px;
+  width: 75px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
 
-https://templatemo.com/tm-561-purple-buzz
+.fa:hover {
+    opacity: 0.7;
+}
 
--->
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+</style>
 </head>
 
 <body>
+<div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v13.0" nonce="xf4OSkTh"></script>
     <!-- Header -->
     <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
         <div class="container d-flex justify-content-between align-items-center">
@@ -59,10 +81,9 @@ https://templatemo.com/tm-561-purple-buzz
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
-                    <a class="nav-link" href="#"><i class='bx bx-bell bx-sm bx-tada-hover text-primary'></i></a>
-                    <a class="nav-link" href="#"><i class='bx bx-cog bx-sm text-primary'></i></a>
-                    <a class="nav-link" href="#"><i class='bx bx-user-circle bx-sm text-primary'></i></a>
-                </div>
+		<div class="fb-share-button" data-href="https://www.facebook.com/GreatEasternMY/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FGreatEasternMY%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                <div class="fa fa-instagram"><a href="https://www.instagram.com/greateasterntakaful/?hl=en"></a>
+		</div>
             </div>
         </div>
     </nav>
@@ -85,33 +106,45 @@ https://templatemo.com/tm-561-purple-buzz
     <!-- Start Work Sigle -->
     <section class="container py-5">
 
-        <div class="row">
-            <div class="col-md-12 m-auto text-left justify-content-center">
-
-                <div class="container-table100">
-                    <div class="wrap-table100">
-                        <div class="table100 ver1 m-b-110">
-                            <table data-vertable="ver1">
-                                <thead>
-                                    <tr class="row100 head">
-                                        <th class="column100 column1" data-column="column1">Topic</th>
-                                        <th class="column100 column2" data-column="column2">Date</th>
-                                        <th class="column100 column3" data-column="column3">Time</th>
-                                        <th class="column100 column4" data-column="column4">Venue</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="row100">
-                                        <td class="column100 column1" data-column="column1">Lawrence Scott</td>
-                                        <td class="column100 column2" data-column="column2">Student</td>
-                                        <td class="column100 column3" data-column="column3">0164684</td>
-                                        <td class="column100 column4" data-column="column4">person@email</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table100 ver1 m-b-110">
+                    <table data-vertable="ver1">
+                        <thead>
+                            <tr class="row100 head">
+                                <th class="column100 column3" data-column="column2">ID</th>
+                                <th class="column100 column2" data-column="column1">Name</th>
+                                <th class="column100 column2" data-column="column3">Date</th>
+                                <th class="column100 column2" data-column="column3">Time</th>
+                                <th class="column100 column2" data-column="column3">Venue</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+			<?php
+                    		while($row =mysqli_fetch_array($result_member,MYSQLI_ASSOC)){
+                                             $id=$row['id'];
+                                             $name=$row['name'];
+                                             $date=$row['date'];
+                                             $time=$row['time'];
+                                             $venue=$row['venue'];
+                     	?>
+                            <tr class="row100">
+                                <td class="column100 column3" data-column="column2">
+                                    <?php echo $id;?></td>
+                                <td class="column100 column2" data-column="column1">
+                                    <?php echo $name;?></td>
+                                <td class="column100 column2" data-column="column1">
+                                    <?php echo $date;?></td>
+				<td class="column100 column2" data-column="column1">
+                                    <?php echo $time;?></td>
+                                <td class="column100 column2" data-column="column1">
+                                    <?php echo $venue;?></td>
+                            </tr>
+			<?php
+                        }
+                     	?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

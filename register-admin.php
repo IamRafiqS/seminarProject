@@ -1,3 +1,13 @@
+<?php
+
+$conn=mysqli_connect("localhost","root","","seminar_project");
+
+if(!$conn)
+{
+die("Connection failed: " . mysqli_connect_error());
+}
+$success=false;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,15 +76,14 @@ https://templatemo.com/tm-561-purple-buzz
 
 
     <!-- Start Banner Hero -->
-    <!-- <section class="bg-light">
+    <section class="bg-light">
         <div class="container py-4">
             <div class="row align-items-center justify-content-between">
                 <div class="contact-header col-lg-4">
-                    <h1 class="h2 pb-3 text-primary">Contact</h1>
-                    <h3 class="h4 regular-400">Elit, sed do eiusmod tempor</h3>
+                    <h1 class="h2 pb-3 text-primary">Register New Admin</h1>
+                    <!-- <h3 class="h4 regular-400">Elit, sed do eiusmod tempor</h3> -->
                     <p class="light-300">
-                        Vector illustration is from <a rel="nofollow" href="https://storyset.com/" target="_blank">StorySet</a>.
-                        Incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+                        This page is for admin to add new admins into the system.
                     </p>
                 </div>
                 <div class="contact-img col-lg-5 align-items-end col-md-4">
@@ -82,64 +91,52 @@ https://templatemo.com/tm-561-purple-buzz
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
     <!-- End Banner Hero -->
 
 
     <!-- Start Contact -->
     <section class="container py-5">
 
-        <h1 class="col-12 col-xl-8 h2 text-left text-primary pt-3">Register New Admin</h1>
-        <!-- <h2 class="col-12 col-xl-8 h4 text-left regular-400">Elit, sed do eiusmod tempor </h2> -->
-        <p class="col-12 col-xl-8 text-left text-muted pb-5 light-300">
-            This page is used to register a new admin account in the system.
-        </p>
+<?php
 
+  if(isset($_POST['save']))
+{
+    $sql = "INSERT INTO admin (username, password)
+    VALUES ('".$_POST["username"]."','".$_POST["password"]."')";
+
+    $result = mysqli_query($conn,$sql);
+	$success = true;
+}
+
+?>
         <div class="row pb-4">
             <!-- Start Contact Form -->
             <div class="col-lg-12 ">
-                <form class="contact-form row" method="post" action="#" role="form">
+                <form class="contact-form row" method="post" action="register-admin.php" role="form">
 
-                    <div class="col-lg-12 mb-4">
+                    <div class="col-lg-6 mb-4">
                         <div class="form-floating">
-                            <input type="text" class="form-control form-control-lg light-300" id="floatingname" name="inputname" placeholder="Name">
-                            <label for="floatingname light-300">Name</label>
+                            <input type="text" class="form-control form-control-lg light-300" id="floatingname" name="username" placeholder="Name">
+                            <label for="floatingname light-300">Username</label>
                         </div>
                     </div><!-- End Input Name -->
 
                     <div class="col-lg-6 mb-4">
                         <div class="form-floating">
-                            <input type="text" class="form-control form-control-lg light-300" id="floatingphone" name="inputphone" placeholder="Phone">
-                            <label for="floatingphone light-300">Phone</label>
-                        </div>
-                    </div><!-- End Input Phone -->
-
-                    <div class="col-lg-6 mb-4">
-                        <div class="form-floating">
-                            <input type="text" class="form-control form-control-lg light-300" id="floatingemail" name="inputemail" placeholder="Email">
-                            <label for="floatingemail light-300">Email</label>
-                        </div>
-                    </div><!-- End Input Email -->
-
-                    <div class="col-lg-6 mb-4">
-                        <div class="form-floating">
-                            <input type="password" class="form-control form-control-lg light-300" id="floatingphone" name="inputpassword" placeholder="Password">
+                            <input type="text" class="form-control form-control-lg light-300" id="floatingphone" name="password" placeholder="Phone">
                             <label for="floatingphone light-300">Password</label>
                         </div>
                     </div><!-- End Input Password -->
 
-                    <div class="col-lg-6 mb-4">
-                        <div class="form-floating">
-                            <input type="password" class="form-control form-control-lg light-300" id="floatingcompany" name="inputconfirm" placeholder="Confirm Password">
-                            <label for="floatingcompany light-300">Confirm Password</label>
-                        </div>
-                    </div><!-- End Input Confirm Password-->
-
                     <div class="col-md-12 col-12 m-auto text-end">
-                        <button type="submit" class="btn btn-secondary rounded-pill px-md-5 px-4 py-2 radius-0 text-light light-300">Register Admin</button>
+                        <button type="submit" name="save" class="btn btn-secondary rounded-pill px-md-5 px-4 py-2 radius-0 text-light light-300">Register Admin</button>
                     </div>
 
                 </form>
+			<?php if($success){ ?>
+   			<script> alert ("New admin registered successfully!")</script>
+ 			<?php } ?>
             </div>
             <!-- End Contact Form -->
 

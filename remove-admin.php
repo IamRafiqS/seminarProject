@@ -1,3 +1,10 @@
+<?php
+        $conn = mysqli_connect("localhost", "root", "", "seminar_project");
+        $sql_member = "SELECT * from admin ORDER BY id ASC;";
+        $result_member = $conn-> query($sql_member);
+	$success=false;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,57 +103,47 @@ https://templatemo.com/tm-561-purple-buzz
                     <table data-vertable="ver1">
                         <thead>
                             <tr class="row100 head">
-                                <!-- <th class="column100 column3" data-column="column2">No.</th> -->
-                                <th class="column100 column2" data-column="column1">Name</th>
-                                <th class="column100 column2" data-column="column3">Email</th>
-                                <th class="column100 column2" data-column="column3">Phone</th>
-                                <th class="column100 column2" data-column="column3">Remove</th>
-                                <th class="column100 column1" data-column="column3">Remarks</th>
+                                <th class="column100 column3" data-column="column2">ID</th>
+                                <th class="column100 column2" data-column="column1">Username</th>
+                                <th class="column100 column2" data-column="column3">Password</th>
+                                <th class="column100 column2" data-column="column3">Edit</th>
+                                <th class="column100 column2" data-column="column3">Delete</th>
                             </tr>
                         </thead>
                         <tbody>
+			<?php
+                    		while($row =mysqli_fetch_array($result_member,MYSQLI_ASSOC)){
+                                             $id=$row['id'];
+                                             $username=$row['username'];
+                                             $password=$row['password'];
+			if (isset($_GET['delete'])) {
+			$id = $_GET['delete'];
+			mysqli_query($conn, "DELETE FROM admin WHERE id=$id");
+			$success=true; 
+			}
+                     	?>
                             <tr class="row100">
-                                <!-- <td class="column100 column3" data-column="column2">1.</td> -->
+                                <td class="column100 column3" data-column="column2">
+                                    <?php echo $id;?></td>
                                 <td class="column100 column2" data-column="column1">
-                                    Travis Scott</td>
+                                    <?php echo $username;?></td>
                                 <td class="column100 column2" data-column="column1">
-                                    travis@email.com</td>
+                                    <?php echo $password;?></td>
                                 <td class="column100 column2" data-column="column1">
-                                    0645612</td>
-                                <td class="column100 column2" data-column="column1">
-                                    <a href="work-single.php">
-                                        Remove
+                                    <a href="edit-admin.php?edit=<?php echo $row["id"]; ?> & username=<?php echo $username; ?> & password=<?php echo $password; ?>">
+                                        Edit
                                 </td></a>
-                                <td class="column100 column1" data-column="column3">Remarks</td>
-                            </tr>
-                            <tr class="row100">
-                                <!-- <td class="column100 column3" data-column="column2">1.</td> -->
                                 <td class="column100 column2" data-column="column1">
-                                    Alan Walker</td>
-                                <td class="column100 column2" data-column="column1">
-                                    alan@email.com</td>
-                                <td class="column100 column2" data-column="column1">
-                                    054533</td>
-                                <td class="column100 column2" data-column="column1">
-                                    <a href="work-single.php">
-                                        Remove
+                                    <a href="remove-admin.php?delete=<?php echo $row["id"]; ?>">
+                                        Delete
                                 </td></a>
-                                <td class="column100 column1" data-column="column3">Remarks</td>
                             </tr>
-                            <tr class="row100">
-                                <!-- <td class="column100 column3" data-column="column2">1.</td> -->
-                                <td class="column100 column2" data-column="column1">
-                                    Johny Walker</td>
-                                <td class="column100 column2" data-column="column1">
-                                    johny@email.com</td>
-                                <td class="column100 column2" data-column="column1">
-                                    655184</td>
-                                <td class="column100 column2" data-column="column1">
-                                    <a href="work-single.php">
-                                        Remove
-                                </td></a>
-                                <td class="column100 column1" data-column="column3">Remarks</td>
-                            </tr>
+			<?php if($success){ ?>
+   			<script> alert ("Admin Details Deleted!")</script>
+ 			<?php } ?>			
+			<?php
+                        }
+                     	?>
                         </tbody>
                     </table>
                 </div>

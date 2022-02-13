@@ -6,14 +6,19 @@ if(!$conn)
 {
 die("Connection failed: " . mysqli_connect_error());
 }
-$success=false;
+if (isset($_GET['edit'])) {
+		$id = $_GET['edit'];
+		$username = $_GET['username'];
+		$password = $_GET['password'];
+	}
+$success = false;
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>I Agency Seminar - Register New Seminar</title>
+    <title>I Agency Seminar - Add new Admin</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
@@ -36,7 +41,7 @@ https://templatemo.com/tm-561-purple-buzz
 
 <body>
     <!-- Header -->
-    <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
+        <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
         <div class="container d-flex justify-content-between align-items-center">
             <a class="navbar-brand h1">
                 <i class='bx bx-buildings bx-sm text-dark'></i>
@@ -77,14 +82,15 @@ https://templatemo.com/tm-561-purple-buzz
 
 
     <!-- Start Banner Hero -->
-    <section class="bg-light">
+    <!-- <section class="bg-light">
         <div class="container py-4">
             <div class="row align-items-center justify-content-between">
                 <div class="contact-header col-lg-4">
-                    <h1 class="h2 pb-3 text-primary">Register New Seminar Plan</h1>
-                    <!-- <h3 class="h4 regular-400">Elit, sed do eiusmod tempor</h3> -->
+                    <h1 class="h2 pb-3 text-primary">Contact</h1>
+                    <h3 class="h4 regular-400">Elit, sed do eiusmod tempor</h3>
                     <p class="light-300">
-                        This page is for admin to add new seminar plan into the system.
+                        Vector illustration is from <a rel="nofollow" href="https://storyset.com/" target="_blank">StorySet</a>.
+                        Incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
                     </p>
                 </div>
                 <div class="contact-img col-lg-5 align-items-end col-md-4">
@@ -92,65 +98,58 @@ https://templatemo.com/tm-561-purple-buzz
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- End Banner Hero -->
 
 
     <!-- Start Contact -->
     <section class="container py-5">
 
+        <h1 class="col-12 col-xl-8 h2 text-left text-primary pt-3">Register New Admin</h1>
+        <!-- <h2 class="col-12 col-xl-8 h4 text-left regular-400">Elit, sed do eiusmod tempor </h2> -->
+        <p class="col-12 col-xl-8 text-left text-muted pb-5 light-300">
+            This page is used to register a new admin account in the system.
+        </p>
 <?php
+if (isset($_POST['update'])) {
+	$id = $_POST['id'];
+	$username = $_POST['username'];
+	$password = $_POST['password'];
 
-  if(isset($_POST['save']))
-{
-    $sql = "INSERT INTO seminar (name, date, time, venue)
-    VALUES ('".$_POST["name"]."','".$_POST["date"]."','".$_POST["time"]."','".$_POST["venue"]."')";
-
-    $result = mysqli_query($conn,$sql);
+	mysqli_query($conn, "UPDATE admin SET username='$username', password='$password' WHERE id=$id");
 	$success = true;
 }
-
 ?>
         <div class="row pb-4">
             <!-- Start Contact Form -->
             <div class="col-lg-12 ">
-                <form class="contact-form row" method="post" action="register-seminar.php" role="form">
-
-                    <div class="col-lg-8 mb-4">
+                <form class="contact-form row" method="post" action="edit-admin.php" role="form">
+			
+		    <div class="col-lg-6 mb-4">
                         <div class="form-floating">
-                            <input type="text" class="form-control form-control-lg light-300" id="floatingname" name="name" placeholder="Seminar Name">
-                            <label for="floatingname light-300">Seminar Name</label>
+                            <input type="hidden" class="form-control form-control-lg light-300" id="floatingname" name="id" placeholder="Name" value="<?php echo $id; ?>">
+                            <label for="floatingname light-300">ID</label>
+                        </div>
+
+                    <div class="col-lg-6 mb-4">
+                        <div class="form-floating">
+                            <input type="text" class="form-control form-control-lg light-300" id="floatingname" name="username" placeholder="Name" value="<?php echo $username; ?>">
+                            <label for="floatingname light-300">Username</label>
                         </div>
                     </div><!-- End Input Name -->
 
-                    <div class="col-lg-8 mb-4">
+                    <div class="col-lg-6 mb-4">
                         <div class="form-floating">
-                            <input type="date" class="form-control form-control-lg light-300" id="floatingemail" name="date" placeholder="Price">
-                            <label for="floatingemail light-300">Date</label>
+                            <input type="text" class="form-control form-control-lg light-300" id="floatingphone" name="password" placeholder="Phone" value="<?php echo $password; ?>">
+                            <label for="floatingphone light-300">Password</label>
                         </div>
-                    </div><!-- End Input Email -->
-
-                    <div class="col-lg-8 mb-4">
-                        <div class="form-floating mb-4">
-                            <input type="time" class="form-control form-control-lg light-300" id="floatingsubject" name="time" placeholder="Subject">
-                            <label for="floatingsubject light-300">Time</label>
-                        </div>
-                    </div><!-- End Input Subject -->
-
-                    <div class="col-lg-8 mb-4">
-                        <div class="form-floating mb-4">
-                            <input type="text" class="form-control form-control-lg light-300" id="floatingsubject" name="venue" placeholder="Subject">
-                            <label for="floatingsubject light-300">Venue</label>
-                        </div>
-                    </div><!-- End Textarea Message -->
-
+                    </div><!-- End Input Password -->
                     <div class="col-md-12 col-12 m-auto text-end">
-                        <button type="submit" name ="save" class="btn btn-secondary rounded-pill px-md-5 px-4 py-2 radius-0 text-light light-300">Register New Seminar</button>
+                        <button type="submit" name="update" class="btn btn-secondary rounded-pill px-md-5 px-4 py-2 radius-0 text-light light-300">Update</button>
                     </div>
-
-                </form>
+           </form>
 			<?php if($success){ ?>
-   			<script> alert ("New seminar registered successfully!")</script>
+   			<script> alert ("Admin Details Updated!")</script>
  			<?php } ?>
             </div>
             <!-- End Contact Form -->
@@ -159,6 +158,7 @@ https://templatemo.com/tm-561-purple-buzz
         </div>
     </section>
     <!-- End Contact -->
+
 
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>

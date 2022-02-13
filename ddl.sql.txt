@@ -1,0 +1,23 @@
+CREATE TABLE Admin (
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  password VARCHAR(50) NOT NULL
+  );
+
+
+CREATE TABLE Seminar (
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  date VARCHAR(50) NOT NULL,
+  time VARCHAR(50) NOT NULL,
+  venue VARCHAR(50) NOT NULL
+  );
+
+CREATE TABLE IF NOT EXISTS `participant` (
+  `id` int(9) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name` varchar(255) NOT NULL,
+  `occupation` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone number` varchar(255) NOT NULL,
+  `filename` varchar(255) NOT NULL
+    );

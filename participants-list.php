@@ -1,8 +1,15 @@
+<?php
+        $conn = mysqli_connect("localhost", "root", "", "seminar_project");
+        $sql_member = "SELECT * from participant ORDER BY id ASC;";
+        $result_member = $conn-> query($sql_member);
+	$success=false;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>I Agency Seminar - Admin Page</title>
+    <title>I Agency Seminar - Participants List Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
@@ -69,43 +76,82 @@ https://templatemo.com/tm-561-purple-buzz
 
 
     <!-- Start Banner Hero -->
-    <div id="work_banner" class="banner-wrapper bg-light w-100 py-5">
-        <div
-            class="banner-vertical-center-work container text-light d-flex justify-content-center align-items-center py-5 p-0">
-            <div class="banner-content col-lg-8 col-12 m-lg-auto text-center">
-                <h1 class="banner-heading h2 display-3 pb-5 semi-bold-600 typo-space-line-center">Admin Page</h1>
-                <h3 class="h4 pb-2 regular-400">Welcome to the Admin page for I Agency Seminar.</h3><br>
-                <p class="banner-body pb-2 light-300">
-                    If you are not an admin please sign out.
-                </p><br>
-                <a href="register-admin.php">
-                    <button type="submit" class="btn rounded-pill btn-outline-light px-4 me-4 light-300">Register New
-                        Admin</button>
-                </a>
-                <a href="remove-admin.php">
-                    <button type="submit" class="btn rounded-pill btn-outline-light px-4 me-4 light-300">Admin List
-                    </button>
-                </a>
-                <a href="register-seminar.php">
-                    <button type="submit" class="btn rounded-pill btn-outline-light px-4 me-4 light-300">Register New
-                        Seminar</button>
-                </a>
-		<a href="remove-seminar.php">
-                    <button type="submit" class="btn rounded-pill btn-outline-light px-4 me-4 light-300">Seminar List</button>
-                </a>
-		<br><br>
-		<a href="email-list.php">
-                    <button type="submit" class="btn rounded-pill btn-outline-light px-4 me-4 light-300">Email Page</button>
-                </a>
-		<a href="participants-list.php">
-                    <button type="submit" class="btn rounded-pill btn-outline-light px-4 me-4 light-300">Participants List</button>
-                </a>
+    <section class="bg-light">
+        <div class="container py-4">
+            <div class="row align-items-center justify-content-between">
+                <div class="contact-header col-lg-4">
+                    <h1 class="h2 pb-3 text-primary">Participants List</h1>
+                    <!-- <h3 class="h4 regular-400">Elit, sed do eiusmod tempor</h3> -->
+                    <p class="light-300">
+                        This page is for admin to view and delete participants.
+                    </p>
+                </div>
+                <div class="contact-img col-lg-5 align-items-end col-md-4">
+                    <img src="./assets/img/banner-img-02.svg">
+                </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- End Banner Hero -->
 
-    
+    <!-- Start Our Work -->
+    <section class="container py-5">
+
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table100 ver1 m-b-110">
+                    <table data-vertable="ver1">
+                        <thead>
+                            <tr class="row100 head">
+                                <th class="column100 column3" data-column="column2">ID</th>
+                                <th class="column100 column2" data-column="column1">Name</th>
+                                <th class="column100 column2" data-column="column3">Occupation</th>
+                                <th class="column100 column2" data-column="column3">Email</th>
+                                <th class="column100 column2" data-column="column3">Phone Number</th>
+                                <th class="column100 column2" data-column="column3">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+			<?php
+                    		while($row =mysqli_fetch_array($result_member,MYSQLI_ASSOC)){
+                                             $id=$row['id'];
+                                             $fullname=$row['fullname'];
+                                             $occupation=$row['occupation'];
+                                             $email=$row['email'];
+                                             $phonenumber=$row['phonenumber'];
+			if (isset($_GET['delete'])) {
+			$id = $_GET['delete'];
+			mysqli_query($conn, "DELETE FROM participant WHERE id=$id");
+			$success=true; 
+			}
+                     	?>
+                            <tr class="row100">
+                                <td class="column100 column3" data-column="column2">
+                                    <?php echo $id;?></td>
+                                <td class="column100 column2" data-column="column1">
+                                    <?php echo $fullname;?></td>
+                                <td class="column100 column2" data-column="column1">
+                                    <?php echo $occupation;?></td>
+				<td class="column100 column2" data-column="column1">
+                                    <?php echo $email;?></td>
+                                <td class="column100 column2" data-column="column1">
+                                    <?php echo $phonenumber;?></td>
+                                <td class="column100 column2" data-column="column1">
+                                    <a href="participants-list.php?delete=<?php echo $row["id"]; ?>">
+                                        Delete
+                                </td></a>
+                            </tr>
+			<?php if($success){ ?>
+   			<script> alert ("Participant Details Deleted!")</script>
+ 			<?php } ?>			
+			<?php
+                        }
+                     	?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
         <!-- <div class="row projects gx-lg-5">
             <a href="work-single.php" class="col-sm-6 col-lg-4 text-decoration-none project marketing social business">
                 <div class="service-work overflow-hidden card mb-5 mx-5 m-sm-0">

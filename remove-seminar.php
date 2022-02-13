@@ -1,8 +1,15 @@
+<?php
+        $conn = mysqli_connect("localhost", "root", "", "seminar_project");
+        $sql_member = "SELECT * from seminar ORDER BY id ASC;";
+        $result_member = $conn-> query($sql_member);
+	$success=false;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>I Agency Seminar - Admin List Page</title>
+    <title>I Agency Seminar - Seminar List Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
@@ -96,57 +103,50 @@ https://templatemo.com/tm-561-purple-buzz
                     <table data-vertable="ver1">
                         <thead>
                             <tr class="row100 head">
-                                <!-- <th class="column100 column3" data-column="column2">No.</th> -->
+                                <th class="column100 column3" data-column="column2">ID</th>
                                 <th class="column100 column2" data-column="column1">Name</th>
-                                <th class="column100 column2" data-column="column3">Email</th>
-                                <th class="column100 column2" data-column="column3">Phone</th>
-                                <th class="column100 column2" data-column="column3">Remove</th>
-                                <th class="column100 column1" data-column="column3">Remarks</th>
+                                <th class="column100 column2" data-column="column3">Date</th>
+                                <th class="column100 column2" data-column="column3">Time</th>
+                                <th class="column100 column2" data-column="column3">Venue</th>
+                                <th class="column100 column2" data-column="column3">Delete</th>
                             </tr>
                         </thead>
                         <tbody>
+			<?php
+                    		while($row =mysqli_fetch_array($result_member,MYSQLI_ASSOC)){
+                                             $id=$row['id'];
+                                             $name=$row['name'];
+                                             $date=$row['date'];
+                                             $time=$row['time'];
+                                             $venue=$row['venue'];
+			if (isset($_GET['delete'])) {
+			$id = $_GET['delete'];
+			mysqli_query($conn, "DELETE FROM seminar WHERE id=$id");
+			$success=true; 
+			}
+                     	?>
                             <tr class="row100">
-                                <!-- <td class="column100 column3" data-column="column2">1.</td> -->
+                                <td class="column100 column3" data-column="column2">
+                                    <?php echo $id;?></td>
                                 <td class="column100 column2" data-column="column1">
-                                    Travis Scott</td>
+                                    <?php echo $name;?></td>
                                 <td class="column100 column2" data-column="column1">
-                                    travis@email.com</td>
+                                    <?php echo $date;?></td>
+				<td class="column100 column2" data-column="column1">
+                                    <?php echo $time;?></td>
                                 <td class="column100 column2" data-column="column1">
-                                    0645612</td>
+                                    <?php echo $venue;?></td>
                                 <td class="column100 column2" data-column="column1">
-                                    <a href="work-single.php">
-                                        Remove
+                                    <a href="remove-seminar.php?delete=<?php echo $row["id"]; ?>">
+                                        Delete
                                 </td></a>
-                                <td class="column100 column1" data-column="column3">Remarks</td>
                             </tr>
-                            <tr class="row100">
-                                <!-- <td class="column100 column3" data-column="column2">1.</td> -->
-                                <td class="column100 column2" data-column="column1">
-                                    Alan Walker</td>
-                                <td class="column100 column2" data-column="column1">
-                                    alan@email.com</td>
-                                <td class="column100 column2" data-column="column1">
-                                    054533</td>
-                                <td class="column100 column2" data-column="column1">
-                                    <a href="work-single.php">
-                                        Remove
-                                </td></a>
-                                <td class="column100 column1" data-column="column3">Remarks</td>
-                            </tr>
-                            <tr class="row100">
-                                <!-- <td class="column100 column3" data-column="column2">1.</td> -->
-                                <td class="column100 column2" data-column="column1">
-                                    Johny Walker</td>
-                                <td class="column100 column2" data-column="column1">
-                                    johny@email.com</td>
-                                <td class="column100 column2" data-column="column1">
-                                    655184</td>
-                                <td class="column100 column2" data-column="column1">
-                                    <a href="work-single.php">
-                                        Remove
-                                </td></a>
-                                <td class="column100 column1" data-column="column3">Remarks</td>
-                            </tr>
+			<?php if($success){ ?>
+   			<script> alert ("Seminar Details Deleted!")</script>
+ 			<?php } ?>			
+			<?php
+                        }
+                     	?>
                         </tbody>
                     </table>
                 </div>

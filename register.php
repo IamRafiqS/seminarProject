@@ -1,8 +1,13 @@
+<?php
+        $conn = mysqli_connect("localhost", "root", "", "seminar_project");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>I Agency Seminar - Admin Login</title>
+    <title>I Agency Seminar - Seminar Registration</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
@@ -16,13 +21,7 @@
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/custom.css">
-    <!--
-    
-TemplateMo 561 Purple Buzz
-
-https://templatemo.com/tm-561-purple-buzz
-
--->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 .upload-container {
     position: relative;
@@ -54,6 +53,23 @@ https://templatemo.com/tm-561-purple-buzz
     margin-left: 300px;
     padding: 7px 20px;
 }
+.fa {
+  padding: 4px;
+  font-size: 20px;
+  width: 75px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
 </style>
 
 <script>
@@ -70,11 +86,26 @@ https://templatemo.com/tm-561-purple-buzz
         }
         alert("Selected file(s) :\n____________________\n"+filenames);
     }
-            
+ function disableSubmit() {
+  document.getElementById("submit").disabled = true;
+ }
+
+  function activateButton(element) {
+
+      if(element.checked) {
+        document.getElementById("submit").disabled = false;
+       }
+       else  {
+        document.getElementById("submit").disabled = true;
+      }
+
+  }   
 </script>
 </head>
 
-<body>
+<body onload="disableSubmit()">
+<div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v13.0" nonce="xf4OSkTh"></script>
     <!-- Header -->
     <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
         <div class="container d-flex justify-content-between align-items-center">
@@ -105,9 +136,9 @@ https://templatemo.com/tm-561-purple-buzz
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
-                    <a class="nav-link" href="#"><i class='bx bx-bell bx-sm bx-tada-hover text-primary'></i></a>
-                    <a class="nav-link" href="#"><i class='bx bx-cog bx-sm text-primary'></i></a>
-                    <a class="nav-link" href="#"><i class='bx bx-user-circle bx-sm text-primary'></i></a>
+                <div class="navbar align-self-center d-flex">
+		<div class="fb-share-button" data-href="https://www.facebook.com/GreatEasternMY/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FGreatEasternMY%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                <div class="fa fa-instagram"><a href="https://www.instagram.com/greateasterntakaful/?hl=en"></a>
                 </div>
             </div>
         </div>
@@ -130,12 +161,12 @@ https://templatemo.com/tm-561-purple-buzz
             <div class="col-lg-6">
                 <!-- Start Contact Form -->
                 <div class="col-lg-10 ">
-                    <form class="contact-form row" method="post" action="#" role="form">
+                    <form class="contact-form row" action="register-function.php" method="post" enctype="multipart/form-data" role="form">
 
                         <div class="col-lg-12 mb-4">
                             <div class="form-floating">
                                 <input type="text" class="form-control form-control-lg light-300" id="floatingname"
-                                    name="inputname" placeholder="Fullname">
+                                    name="fullname" placeholder="Fullname">
                                 <label for="floatingname light-300">Full Name</label>
                             </div>
                         </div><!-- End Input Name -->
@@ -143,15 +174,15 @@ https://templatemo.com/tm-561-purple-buzz
                         <div class="col-lg-12 mb-4">
                             <div class="form-floating">
                                 <input type="text" class="form-control form-control-lg light-300" id="floatingname"
-                                    name="inputname" placeholder="Occupation">
+                                    name="occupation" placeholder="Occupation">
                                 <label for="floatingname light-300">Occupation</label>
                             </div>
                         </div><!-- End Input Occupation -->
 
                         <div class="col-lg-12 mb-4">
                             <div class="form-floating">
-                                <input type="text" class="form-control form-control-lg light-300" id="floatingname"
-                                    name="inputname" placeholder="Email">
+                                <input type="email" class="form-control form-control-lg light-300" id="floatingname"
+                                    name="email" placeholder="Email">
                                 <label for="floatingname light-300">Email</label>
                             </div>
                         </div><!-- End Input Email -->
@@ -159,35 +190,47 @@ https://templatemo.com/tm-561-purple-buzz
                         <div class="col-lg-12 mb-4">
                             <div class="form-floating">
                                 <input type="number" class="form-control form-control-lg light-300" id="floatingname"
-                                    name="inputname" placeholder="Phone Number">
+                                    name="phonenumber" placeholder="Phone Number">
                                 <label for="floatingname light-300">Phone Number</label>
                             </div>
                         </div><!-- End Input Phone Number -->
 			
                         <div class="col-lg-12 mb-4">
                             <div class="form-floating">
-                                <select>
+                                <select name="seminar">
             			<option value="course-type" selected="true" disabled="disabled">Seminar Plan</option>
-            			<option value="short-courses">Short courses</option>
-            			<option value="featured-courses">Featured courses</option>
-            			<option value="undergraduate">Undergraduate</option>
-            			<option value="diploma">Diploma</option>
-            			<option value="certificate">Certificate</option>
-            			<option value="masters-degree">Masters degree</option>
-            			<option value="postgraduate">Postgraduate</option>
+				<?php
+				$sql_seminar = "SELECT * from seminar ORDER BY id ASC;";
+                           	$result_seminar = $conn-> query($sql_seminar);
+                                    while($row = mysqli_fetch_array($result_seminar)){
+                                      $id = $row['id'];
+                                      $name = $row['name'];
+                                        ?>
+				<option value="<?php echo $name?>"><?php echo $name?></option>
+				<?php
+                                }
+                             	?>
           			</select>
                             </div>
                         </div><!-- End Input Seminar Plan -->
 			
 			<div class="upload-container">
-        			<input type="file" id="file_upload" multiple />
+        			<input type="file" name="file1" id="file_upload" multiple />
     			</div>
-                        <div class="col-md-12 col-12 m-auto text-end">
+			<div class="col-lg-12 mb-4"><br>
+			<input type="checkbox" name="terms" id="terms" onchange="activateButton(this)">  I have read and agree with the terms and conditions.
+			</div>                        
+			<div class="col-md-12 col-12 m-auto text-end">
 			<br>
-                            <button type="submit"
+                            <button type="submit" name="submit" id="submit"
                                 class="btn btn-secondary rounded-pill px-md-5 px-4 py-2 radius-0 text-light light-300">Register</button>
                         </div>
-
+                	<?php 
+			if (isset($_GET['st'])){
+				$st = $_GET['st'];
+			if ($st == 'success') ?>
+                        <script> alert ("Seminar Registered Successfully!")</script>
+                    	<?php } ?>
                     </form>
                 </div>
                 <!-- End Register Form -->
