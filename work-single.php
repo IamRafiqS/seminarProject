@@ -86,7 +86,7 @@ https://templatemo.com/tm-561-purple-buzz
     </div>
     <!-- End Banner Hero -->
 
-    <!-- Start Work Sigle -->
+<!-- Start Work Sigle -->
     <section class="container py-5">
 
         <div class="row pt-5">
@@ -98,8 +98,8 @@ https://templatemo.com/tm-561-purple-buzz
             </div>
         </div><!-- End Blog Cover -->
 
-          <div class="row">
-            <div class="col-md-12 m-auto text-left justify-content-center">
+        <div class="row">
+            <div class="col-md-12 text-left justify-content-center">
                 <div class="container-table100">
                     <div class="wrap-table100">
                         <div class="table100 ver1 m-b-110">
@@ -112,7 +112,8 @@ https://templatemo.com/tm-561-purple-buzz
                                         <th class="column100 column4" data-column="column4">Email</th>
                                         <th class="column100 column5" data-column="column5">Agent</th>
                                         <th class="column100 column6" data-column="column6">Status</th>
-                                        <th class="column100 column6" data-column="column6">Send Email</th>
+                                        <th class="column100 column6" data-column="column6">Invite User</th>
+                                        <th class="column100 column6" data-column="column6">Invite Agent</th>
                                         <th class="column100 column7" data-column="column7">Remarks</th>
                                     </tr>
                                 </thead>
@@ -126,7 +127,12 @@ https://templatemo.com/tm-561-purple-buzz
                                         <td class="column100 column6" data-column="column6">Accepted</td>
                                         <td class="column100 column6" data-column="column6">
                                             <a href="mailto:abc@email.com">
-                                                <button type="button" class="btn btn-outline-dark">Invite User</button>
+                                                <button type="button" class="btn btn-outline-dark">Send Email</button>
+                                            </a>
+                                        </td>
+                                        <td class="column100 column6" data-column="column6">
+                                            <a href="mailto:abc@email.com">
+                                                <button type="button" class="btn btn-outline-dark">Send Email</button>
                                             </a>
                                         </td>
                                         <td class="column100 column7" data-column="column7">None</td>
@@ -140,9 +146,14 @@ https://templatemo.com/tm-561-purple-buzz
                                         <td class="column100 column6" data-column="column6">Accepted</td>
                                         <td class="column100 column6" data-column="column6">
                                             <a href="mailto:abc@email.com">
-                                                <button type="button" class="btn btn-outline-dark">Invite User</button>
-                                            </a>                                        
-                                        </td>                                        
+                                                <button type="button" class="btn btn-outline-dark">Send Email</button>
+                                            </a>
+                                        </td>
+                                        <td class="column100 column6" data-column="column6">
+                                            <a href="mailto:abc@email.com">
+                                                <button type="button" class="btn btn-outline-dark">Send Email</button>
+                                            </a>
+                                        </td>                                      
                                         <td class="column100 column7" data-column="column7">None</td>
                                     </tr>
                                     <tr class="row100">
@@ -154,9 +165,14 @@ https://templatemo.com/tm-561-purple-buzz
                                         <td class="column100 column6" data-column="column6">Accepted</td>
                                         <td class="column100 column6" data-column="column6">
                                             <a href="mailto:abc@email.com">
-                                                <button type="button" class="btn btn-outline-dark">Invite User</button>
-                                            </a>                                        
-                                        </td>                                       
+                                                <button type="button" class="btn btn-outline-dark">Send Email</button>
+                                            </a>
+                                        </td>
+                                        <td class="column100 column6" data-column="column6">
+                                            <a href="mailto:abc@email.com">
+                                                <button type="button" class="btn btn-outline-dark">Send Email</button>
+                                            </a>
+                                        </td>                                     
                                         <td class="column100 column7" data-column="column7">None</td>
                                     </tr>
                                 </tbody>
