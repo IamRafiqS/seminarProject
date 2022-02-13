@@ -97,7 +97,6 @@ https://templatemo.com/tm-561-purple-buzz
 
     <!-- Start Our Work -->
     <section class="container py-5">
-
         <div class="container-table100">
             <div class="wrap-table100">
                 <div class="table100 ver1 m-b-110">
@@ -105,9 +104,10 @@ https://templatemo.com/tm-561-purple-buzz
                         <thead>
                             <tr class="row100 head">
                                 <!-- <th class="column100 column3" data-column="column2">No.</th> -->
-                                <th class="column100 column2" data-column="column1">Seminar Plan</th>
-                                <th class="column100 column2" data-column="column3">Price</th>
-                                <th class="column100 column2" data-column="column3">Subject</th>
+                                <th class="column100 column2" data-column="column1">Topic</th>
+                                <th class="column100 column2" data-column="column3">Date</th>
+                                <th class="column100 column2" data-column="column3">Time</th>
+                                <th class="column100 column2" data-column="column3">Venue</th>
                                 <th class="column100 column1" data-column="column3">Description</th>
                             </tr>
                         </thead>
@@ -115,37 +115,43 @@ https://templatemo.com/tm-561-purple-buzz
                             <tr class="row100">
                                 <!-- <td class="column100 column3" data-column="column2">1.</td> -->
                                 <td class="column100 column2" data-column="column1">
-                                    <a href="work-single.php">
+                                    <a href="work-single.html">
                                         Seminar Plan A
                                 </td></a>
                                 <td class="column100 column2" data-column="column1">
-                                    $10</td>
+                                    1/1/2022</td>
                                 <td class="column100 column2" data-column="column1">
-                                    Healthcare</td>
+                                    2200h</td>
+                                <td class="column100 column2" data-column="column1">
+                                    Google Meet</td>
                                 <td class="column100 column1" data-column="column3">Description of Seminar Plan.</td>
                             </tr>
                             <tr class="row100">
                                 <!-- <td class="column100 column3" data-column="column2">1.</td> -->
                                 <td class="column100 column2" data-column="column1">
-                                    <a href="work-single.php">
+                                    <a href="work-single.html">
                                         Seminar Plan B
                                 </td></a>
                                 <td class="column100 column2" data-column="column1">
-                                    $23</td>
+                                    1/1/2022</td>
                                 <td class="column100 column2" data-column="column1">
-                                    Accident</td>
+                                    2100h</td>
+                                <td class="column100 column2" data-column="column1">
+                                    Google Meet</td>
                                 <td class="column100 column1" data-column="column3">Description of Seminar Plan.</td>
                             </tr>
                             <tr class="row100">
                                 <!-- <td class="column100 column3" data-column="column2">1.</td> -->
                                 <td class="column100 column2" data-column="column1">
-                                    <a href="work-single.php">
+                                    <a href="work-single.html">
                                         Seminar Plan C
                                 </td></a>
                                 <td class="column100 column2" data-column="column1">
-                                    $280</td>
+                                    2/12/2022</td>
                                 <td class="column100 column2" data-column="column1">
-                                    Safety</td>
+                                    1600h</td>
+                                <td class="column100 column2" data-column="column1">
+                                    Zoom Meeting</td>
                                 <td class="column100 column1" data-column="column3">Description of Seminar Plan.</td>
                             </tr>
                         </tbody>
@@ -153,111 +159,9 @@ https://templatemo.com/tm-561-purple-buzz
                 </div>
             </div>
         </div>
-        <!-- <div class="row projects gx-lg-5">
-            <a href="work-single.php" class="col-sm-6 col-lg-4 text-decoration-none project marketing social business">
-                <div class="service-work overflow-hidden card mb-5 mx-5 m-sm-0">
-                    <img class="card-img-top" src="./assets/img/our-work-01.jpg" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title light-300 text-dark">Seminar Plan A</h5>
-                        <p class="card-text light-300 text-dark">
-                            This is the most basic plan.
-                        </p>
-                        <span class="text-decoration-none text-primary light-300">
-                              Read more <i class='bx bxs-hand-right ms-1'></i>
-                          </span>
-                    </div>
-                </div>
-            </a>
-            <a href="work-single.php" class="col-sm-6 col-lg-4 text-decoration-none project graphic social">
-                <div class="service-work overflow-hidden card mx-5 mx-sm-0 mb-5">
-                    <img class="card-img-top" src="./assets/img/our-work-02.jpg" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title light-300 text-dark">Seminar Plan B</h5>
-                        <p class="card-text light-300 text-dark">
-                            This is a description for seminar plan.
-                        </p>
-                        <span class="text-decoration-none text-primary light-300">
-                              Read more <i class='bx bxs-hand-right ms-1'></i>
-                          </span>
-                    </div>
-                </div>
-            </a>
-            <a href="work-single.php" class="col-sm-6 col-lg-4 text-decoration-none project marketing graphic business">
-                <div class="service-work overflow-hidden card mx-5 mx-sm-0 mb-5">
-                    <img class="card-img-top" src="./assets/img/our-work-03.jpg" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title light-300 text-dark">Seminar Plan C</h5>
-                        <p class="card-text light-300 text-dark">
-                            This is a description for seminar plan.
-                        </p>
-                        <span class="text-decoration-none text-primary light-300">
-                              Read more <i class='bx bxs-hand-right ms-1'></i>
-                          </span>
-                    </div>
-                </div>
-            </a>
-            <a href="work-single.php" class="col-sm-6 col-lg-4 text-decoration-none project social business">
-                <div class="service-work overflow-hidden card mx-5 mx-sm-0 mb-5">
-                    <img class="card-img-top" src="./assets/img/our-work-04.jpg" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title light-300 text-dark">Seminar Plan D</h5>
-                        <p class="card-text light-300 text-dark">
-                            This is a description for seminar plan.
-                        </p>
-                        <span class="text-decoration-none text-primary light-300">
-                              Read more <i class='bx bxs-hand-right ms-1'></i>
-                          </span>
-                    </div>
-                </div>
-            </a>
-            <a href="work-single.php" class="col-sm-6 col-lg-4 text-decoration-none project marketing">
-                <div class="service-work overflow-hidden card mx-5 mx-sm-0 mb-5">
-                    <img class="card-img-top" src="./assets/img/our-work-05.jpg" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title light-300 text-dark">Seminar Plan E</h5>
-                        <p class="card-text light-300 text-dark">
-                            This is a description for seminar plan.
-                        </p>
-                        <span class="text-decoration-none text-primary light-300">
-                              Read more <i class='bx bxs-hand-right ms-1'></i>
-                          </span>
-                    </div>
-                </div>
-            </a>
-            <a href="work-single.php" class="col-sm-6 col-lg-4 text-decoration-none project marketing graphic">
-                <div class="service-work overflow-hidden card mx-5 mx-sm-0 mb-5">
-                    <img class="card-img-top" src="./assets/img/our-work-06.jpg" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title light-300 text-dark">Seminar Plan F</h5>
-                        <p class="card-text light-300 text-dark">
-                            This is a description for seminar plan.
-                        </p>
-                        <span class="text-decoration-none text-primary light-300">
-                              Read more <i class='bx bxs-hand-right ms-1'></i>
-                          </span>
-                    </div>
-                </div>
-            </a> -->
         </div>
-        <!-- <div class="row">
-            <div class="btn-toolbar justify-content-center pb-4" role="toolbar" aria-label="Toolbar with button groups">
-                <div class="btn-group me-2" role="group" aria-label="First group">
-                    <button type="button" class="btn btn-secondary text-white">Previous</button>
-                </div>
-                <div class="btn-group me-2" role="group" aria-label="Second group">
-                    <button type="button" class="btn btn-light">1</button>
-                </div>
-                <div class="btn-group me-2" role="group" aria-label="Second group">
-                    <button type="button" class="btn btn-secondary text-white">2</button>
-                </div>
-                <div class="btn-group" role="group" aria-label="Third group">
-                    <button type="button" class="btn btn-secondary text-white">Next</button>
-                </div>
-            </div>
-        </div> -->
     </section>
     <!-- End Our Work -->
-
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <!-- Lightbox -->
