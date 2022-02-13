@@ -88,28 +88,35 @@ https://templatemo.com/tm-561-purple-buzz
     <!-- Start Contact -->
     <section class="container py-5">
         <div class="row pb-4">
-            <!-- Start Contact Form -->
+                      <!-- Start Contact Form -->
             <div class="col-lg-12 ">
                 <form class="contact-form row" method="post" action="#" role="form">
 
-                    <div class="col-lg-8 mb-4">
+                    <div class="col-lg-12 mb-4">
                         <div class="form-floating">
-                            <input type="text" class="form-control form-control-lg light-300" id="floatingname" name="inputseminarname" placeholder="Seminar Name">
-                            <label for="floatingname light-300">Seminar Name</label>
+                            <input type="text" class="form-control form-control-lg light-300" id="floatingname" name="inputseminarname" placeholder="Seminar Topic">
+                            <label for="floatingname light-300">Seminar Topic</label>
                         </div>
                     </div><!-- End Input Name -->
 
                     <div class="col-lg-4 mb-4">
                         <div class="form-floating">
-                            <input type="text" class="form-control form-control-lg light-300" id="floatingemail" name="inputprice" placeholder="Price">
-                            <label for="floatingemail light-300">Price</label>
+                            <input type="text" class="form-control form-control-lg light-300" id="floatingemail" name="inputdate" placeholder="Date">
+                            <label for="floatingemail light-300">Date</label>
                         </div>
                     </div><!-- End Input Email -->
 
-                    <div class="col-12">
+                    <div class="col-lg-4">
                         <div class="form-floating mb-4">
-                            <input type="text" class="form-control form-control-lg light-300" id="floatingsubject" name="inputsubject" placeholder="Subject">
-                            <label for="floatingsubject light-300">Subject</label>
+                            <input type="text" class="form-control form-control-lg light-300" id="floatingsubject" name="inputtime" placeholder="Time">
+                            <label for="floatingsubject light-300">Time</label>
+                        </div>
+                    </div><!-- End Input Subject -->
+
+                    <div class="col-lg-4">
+                        <div class="form-floating mb-4">
+                            <input type="text" class="form-control form-control-lg light-300" id="floatingsubject" name="inputvenue" placeholder="Venue">
+                            <label for="floatingsubject light-300">Venue</label>
                         </div>
                     </div><!-- End Input Subject -->
 
